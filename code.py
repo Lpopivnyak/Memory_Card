@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 import random
 import questCode
+import menuWindowCode
 
 app = QApplication([])
 window = QWidget()
@@ -73,7 +74,7 @@ def showResult():
         result.setText("Неправильно")
 
 answerButton.clicked.connect(showResult)
-
+menuButton.clicked.connect(menuWindowCode.openWindow)
 
 window.setLayout(mainLine)
 window.show()
