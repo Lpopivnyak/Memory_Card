@@ -48,6 +48,23 @@ mainLine.addWidget(answersGroup)
 mainLine.addWidget(answerButton)
 mainLine.addWidget(nextQuestButton)
 
+app.setStyleSheet("""
+        QWidget {
+            background: #E0E0E0;       
+        }
+        
+        QPushButton {
+            background: #FFFFFF;
+        }
+        
+        QSpinBox {
+            background: #FFFFFF;
+        }
+        
+        QLineEdit {
+            background: #FFFFFF;
+        }
+        """)
 
 def showQuest():
     random.shuffle(answers)
@@ -73,8 +90,22 @@ def showResult():
     else:
         result.setText("Неправильно")
 
+def nextQuestionFunc():
+    answers[0].show()
+    answers[1].show()
+    answers[2].show()
+    answers[3].show()
+    answerButton.show()
+    result.hide()
+    nextQuestButton.hide()
+    showQuest()
+    questCode.currentQuest += 1
+
+nextQuestionFunc()
+
 answerButton.clicked.connect(showResult)
 menuButton.clicked.connect(menuWindowCode.openWindow)
+nextQuestButton.clicked.connect(nextQuestionFunc)
 
 window.setLayout(mainLine)
 window.show()

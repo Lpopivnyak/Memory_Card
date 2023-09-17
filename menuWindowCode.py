@@ -22,6 +22,7 @@ def openWindow():
 
     extraLine2 = QHBoxLayout()
     extraLine2.addWidget(rightAnswerLbl)
+    extraLine2.addWidget(rightAnswerEdit)
     mainLine.addLayout(extraLine2)
 
     def addFunc():
